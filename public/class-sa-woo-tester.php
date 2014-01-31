@@ -21,7 +21,7 @@
  * @package sa-woo-tester
  * @author  Your Name <email@example.com>
  */
-class sa-woo-tester {
+class sa_woo_tester {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.

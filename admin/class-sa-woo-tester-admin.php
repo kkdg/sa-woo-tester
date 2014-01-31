@@ -21,7 +21,7 @@
  * @package sa-woo-tester_Admin
  * @author  Your Name <email@example.com>
  */
-class sa-woo-tester_Admin {
+class sa_woo_tester_Admin {
 
 	/**
 	 * Instance of this class.
@@ -66,7 +66,7 @@ class sa-woo-tester_Admin {
 		 * - Rename "sa-woo-tester" to the name of your initial plugin class
 		 *
 		 */
-		$plugin = sa-woo-tester::get_instance();
+		$plugin = sa_woo_tester::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.
@@ -136,7 +136,7 @@ class sa-woo-tester_Admin {
 
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), sa-woo-tester::VERSION );
+			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), sa_woo_tester::VERSION );
 		}
 
 	}
@@ -160,7 +160,7 @@ class sa-woo-tester_Admin {
 
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), sa-woo-tester::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), sa_woo_tester::VERSION );
 		}
 
 	}
@@ -187,8 +187,8 @@ class sa-woo-tester_Admin {
 		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'Woo Tester Option', $this->plugin_slug ), // Page Title
+			__( 'Woo Tester Option', $this->plugin_slug ), // Menu Text
 			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )

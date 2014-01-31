@@ -1,33 +1,38 @@
 <?php
 /**
- * The WordPress Plugin Boilerplate.
+ * Woocommerce Tester Plugin
  *
- * A foundation off of which to build well-documented WordPress plugins that
- * also follow WordPress Coding Standards and PHP best practices.
+ * Woocommerce Tester off of which to test woocommerce behavior while developing woocommerce extension plugin
+ * This also helps you build an extension faster the right way.
  *
  * @package   sa-woo-tester
- * @author    Your Name <email@example.com>
+ * @author    Dr.DeX
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://www.skyaperture.com/plugin/woo-tester
+ * @copyright 2014 SkyAperture
  *
  * @wordpress-plugin
- * Plugin Name:       @TODO
- * Plugin URI:        @TODO
- * Description:       @TODO
- * Version:           1.0.0
- * Author:            @TODO
- * Author URI:        @TODO
+ * Plugin Name:       SA-Woo-Tester
+ * Plugin URI:        http://www.skyaperture.com/plugin/woo-tester
+ * Description:       Woocommerce Tester off of which to test woocommerce behavior while developing woocommerce extension plugin.
+ * Version:           0.1.0
+ * Author:            Dr.DeX
+ * Author URI:        http://www.wordpressure.co.kr
  * Text Domain:       sa-woo-tester-locale
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Domain Path:       /languages
- * GitHub Plugin URI: https://github.com/<owner>/<repo>
+ * Domain Path:       /lang
+ * GitHub Plugin URI: https://github.com/kkdg/sa-woo-tester
  */
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
 	die;
+}
+
+// If woocommerce is not activated, cancel plugin activation.
+if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+    return;
 }
 
 /*----------------------------------------------------------------------------*
@@ -51,16 +56,16 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-sa-woo-tester.php' );
  * - replace sa-woo-tester with the name of the class defined in
  *   `class-sa-woo-tester.php`
  */
-register_activation_hook( __FILE__, array( 'sa-woo-tester', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'sa-woo-tester', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'sa_woo_tester', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'sa_woo_tester', 'deactivate' ) );
 
 /*
  * @TODO:
  *
- * - replace sa-woo-tester with the name of the class defined in
- *   `class-sa-woo-tester.php`
+ * - replace sa_woo_tester with the name of the class defined in
+ *   `class-sa_woo_tester.php`
  */
-add_action( 'plugins_loaded', array( 'sa-woo-tester', 'get_instance' ) );
+add_action( 'plugins_loaded', array( 'sa_woo_tester', 'get_instance' ) );
 
 /*----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality
@@ -85,6 +90,6 @@ add_action( 'plugins_loaded', array( 'sa-woo-tester', 'get_instance' ) );
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
 	require_once( plugin_dir_path( __FILE__ ) . 'admin/class-sa-woo-tester-admin.php' );
-	add_action( 'plugins_loaded', array( 'sa-woo-tester_Admin', 'get_instance' ) );
+	add_action( 'plugins_loaded', array( 'sa_woo_tester_Admin', 'get_instance' ) );
 
 }
