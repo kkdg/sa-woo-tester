@@ -42,7 +42,7 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 /*
  * @TODO:
  *
- * - replace `class-sa-woo-tester.php` with the name of the plugin's class file
+ * 
  *
  */
 require_once( plugin_dir_path( __FILE__ ) . 'public/class-sa-woo-tester.php' );
@@ -53,8 +53,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-sa-woo-tester.php' );
  *
  * @TODO:
  *
- * - replace sa-woo-tester with the name of the class defined in
- *   `class-sa-woo-tester.php`
+ *    
  */
 register_activation_hook( __FILE__, array( 'sa_woo_tester', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'sa_woo_tester', 'deactivate' ) );
@@ -62,8 +61,8 @@ register_deactivation_hook( __FILE__, array( 'sa_woo_tester', 'deactivate' ) );
 /*
  * @TODO:
  *
- * - replace sa_woo_tester with the name of the class defined in
- *   `class-sa_woo_tester.php`
+ * 
+ *  
  */
 add_action( 'plugins_loaded', array( 'sa_woo_tester', 'get_instance' ) );
 
